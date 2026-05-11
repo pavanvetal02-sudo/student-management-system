@@ -6,6 +6,7 @@
 
 struct Student {
     int roll_no;
+    char division[10];
     char name[50];
     float marks;
 };
@@ -21,6 +22,8 @@ void addStudent() {
     struct Student s;
     printf("\nEnter Roll Number: ");
     scanf("%d", &s.roll_no);
+    printf("Enter Division: ");
+    scanf(" %s", s.division);
     printf("Enter Name: ");
     scanf(" %[^\n]", s.name);
     printf("Enter Marks: ");
@@ -38,7 +41,7 @@ void displayStudents() {
     }
     printf("\n--- Student Records ---\n");
     for (int i = 0; i < count; i++) {
-        printf("Roll No: %d, Name: %s, Marks: %.2f\n", students[i].roll_no, students[i].name, students[i].marks);
+        printf("Roll No: %d, Division: %s, Name: %s, Marks: %.2f\n", students[i].roll_no, students[i].division, students[i].name, students[i].marks);
     }
 }
 
@@ -52,7 +55,7 @@ void searchStudent() {
     scanf("%d", &roll);
     for (int i = 0; i < count; i++) {
         if (students[i].roll_no == roll) {
-            printf("\nStudent Found: Roll No: %d, Name: %s, Marks: %.2f\n", students[i].roll_no, students[i].name, students[i].marks);
+            printf("\nStudent Found: Roll No: %d, Division: %s, Name: %s, Marks: %.2f\n", students[i].roll_no, students[i].division, students[i].name, students[i].marks);
             return;
         }
     }
